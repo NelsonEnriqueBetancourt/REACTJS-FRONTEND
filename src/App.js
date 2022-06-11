@@ -12,6 +12,7 @@ import { Toast } from 'primereact/toast';
 
 
 
+
 import 'primereact/resources/themes/nova-accent/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -52,6 +53,11 @@ export default class App extends Component{
         icon : 'pi pi-fw pi-user-minus',
         command: () =>{this.Delete()}
       },
+
+      {
+        label: 'SEARCH',
+        icon: 'pi pi-fw pi-users'
+      }
       
     ];
     this.personaService = new PersonaService();
@@ -103,7 +109,7 @@ export default class App extends Component{
     return(
       <div style={{width: '80%', marginTop:'40 px', margin: '0 auto', }}> 
         <br></br>
-        <h1>dddd</h1>
+        <h1>GESTÍON EMPLEADOS CRM</h1>
         <br></br>
         <Panel  header="LISTA DE CONTACTOS CRM">
           <DataTable value={this.state.personas} paginator={true} rows="4" selectionMode="single" selection={this.state.selectPersona} onSelectionChange={e => this.setState({selectPersona: e.value})}>
@@ -118,7 +124,7 @@ export default class App extends Component{
          </DataTable>
         </Panel>
         <Menubar model={this.items} />
-        <Dialog header="Crear Persona" visible={this.state.visible} style={{ width:'400px'}} footer={this.footer} modal={true} onHide={() => this.setState({visible: false})}>
+        <Dialog header="NUEVO CONTACTO" visible={this.state.visible} style={{ width:'400px'}} footer={this.footer} modal={true} onHide={() => this.setState({visible: false})}>
           <br></br>
             <span className="p-float-label">
               <InputText value={this.state.persona.name} style={{width: '100%'}} type="text" id="name" onChange={(e) => {  
